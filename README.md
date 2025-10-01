@@ -1,7 +1,7 @@
 # Ansible playbooks for the Squonk2 Job Operator
 
-[![build](https://github.com/informaticsmatters/squonk2-data-manager-job-operator/actions/workflows/build.yaml/badge.svg)](https://github.com/informaticsmatters/squonk2-data-manager-job-operator/actions/workflows/build.yaml)
-[![build tag](https://github.com/informaticsmatters/squonk2-data-manager-job-operator/actions/workflows/build-tag.yaml/badge.svg)](https://github.com/informaticsmatters/squonk2-data-manager-job-operator/actions/workflows/build-tag.yaml)
+[![lint](https://github.com/informaticsmatters/squonk2-data-manager-job-operator-ansible/actions/workflows/lint.yaml/badge.svg)](https://github.com/informaticsmatters/squonk2-data-manager-job-operator-ansible/actions/workflows/lint.yaml)
+
 
 ![GitHub](https://img.shields.io/github/license/informaticsmatters/squonk2-data-manager-job-operator-ansible)
 
