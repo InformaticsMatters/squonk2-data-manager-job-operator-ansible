@@ -26,7 +26,7 @@ To get started review the pre-commit utility and the conventional commit style
 and then set-up your local clone by following the **Installation** and
 **Quick Start** sections: -
 
-    pip install -r build-requirements.txt
+    pip install pre-commit
     pre-commit install -t commit-msg -t pre-commit
 
 Now the project's rules will run on every commit, and you can check the
