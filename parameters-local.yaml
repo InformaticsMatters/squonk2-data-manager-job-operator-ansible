@@ -9,6 +9,9 @@
 jo_kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
 
 jo_namespace: im-data-manager-job-operator
-jo_image_tag: "{{ lookup('env', 'IM_DEV_JOBO_IMAGE_TAG') | default('31.1.0', True) }}"
-jo_pod_default_cpu: 100m
-jo_pod_default_memory: 64Mi
+jo_image_tag: "{{ lookup('env', 'IM_DEV_JOBO_IMAGE_TAG') | default('32.0.1', True) }}"
+jo_pod_default_cpu: 250m
+jo_pod_default_memory: 1Gi
+
+jo_priority_class: im-application-high
+jo_apply_pod_priority_class: 'yes'
