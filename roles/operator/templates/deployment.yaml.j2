@@ -16,6 +16,9 @@ spec:
       labels:
         application: job-operator
     spec:
+{% if jo_priority_class %}
+      priorityClassName: {{ jo_priority_class }}
+{% endif %}
       serviceAccountName: job-operator
 
       # Prefer 'application' nodes before 'core'

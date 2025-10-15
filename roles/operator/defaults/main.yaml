@@ -25,6 +25,8 @@ jo_nf_executor_queue_size: 100
 # Operator default is 'no'.
 jo_nf_ansi_log: no
 
+# A priority class for the operator Pod
+jo_priority_class: ''
 # Apply Priority Class to Pods launched
 jo_apply_pod_priority_class: no
 
