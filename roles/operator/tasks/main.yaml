@@ -2,28 +2,30 @@
 
 - name: Prep
   ansible.builtin.include_tasks: prep.yaml
+  vars:
+    kubeconfig: "{{ jo_kubeconfig }}"
 
-- name: Deploy (with k8s kubeconfig)
-  when: jo_kubeconfig != 'SetMe'
+# Include sensitive (Ansible Vault) variables based on the installation name.
+# We include 'sensitive-local.vault' variables if the installation name is 'local'.
+# The user will need to provide the vault password.
+
+- name: Include sensitive (vault) variables ({{ dt_installation_name }})
+  ansible.builtin.include_vars:
+    file: sensitive-{{ dt_installation_name }}.vault
+  when: as_installation_name | length > 0
+
+- name: Go
   module_defaults:
     group/k8s:
-      kubeconfig: "{{ jo_kubeconfig }}"
+      host: "{{ k8s_auth_host }}"
+      api_key: "{{ k8s_auth_api_key }}"
+      kubeconfig: "{{ k8s_auth_kubeconfig }}"
   block:
 
-  - name: Deploy (k8s kubeconfig)
+  - name: Deploy
     ansible.builtin.include_tasks: deploy.yaml
-    when: jo_state|string == 'present'
-  - name: Undeploy (k8s kubeconfig)
-    ansible.builtin.include_tasks: undeploy.yaml
-    when: jo_state|string == 'absent'
+    when: jo_state | string == 'present'
 
-- name: Deploy (with k8s host and API key)
-  when: jo_kubeconfig == 'SetMe'
-  block:
-
-  - name: Deploy (k8s API key)
-    ansible.builtin.include_tasks: deploy.yaml
-    when: jo_state|string == 'present'
-  - name: Undeploy (k8s API key)
+  - name: Undeploy
     ansible.builtin.include_tasks: undeploy.yaml
-    when: jo_state|string == 'absent'
+    when: jo_state | string == 'absent'
