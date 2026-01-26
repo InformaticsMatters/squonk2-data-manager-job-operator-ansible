@@ -10,7 +10,7 @@
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
-This repo contains playbooks for the Squonk2 Data Manager Job Operator.
+This repository contains playbooks for the Squonk2 Data Manager Job Operator.
 Prerequisites: -
 
 ## Contributing
