@@ -9,10 +9,10 @@
 # We include 'sensitive-local.vault' variables if the installation name is 'local'.
 # The user will need to provide the vault password.
 
-- name: Include sensitive (vault) variables ({{ dt_installation_name }})
+- name: Include sensitive (vault) variables ({{ jo_installation_name }})
   ansible.builtin.include_vars:
-    file: sensitive-{{ dt_installation_name }}.vault
-  when: as_installation_name | length > 0
+    file: sensitive-{{ jo_installation_name }}.vault
+  when: jo_installation_name | length > 0
 
 - name: Go
   module_defaults:
